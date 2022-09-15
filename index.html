@@ -1,3 +1,28 @@
+<?php
+$uname = $_POST['uname'];
+$pass = $_POST['pass'];
+$error = "";
+$success = "";
+
+if(isset($_POST['submit'])){
+  if($uname == "admin"){
+    if ($pass == "password"){
+      $error = "";
+      $success = "WElcome admin";
+    }
+    else{
+      $error = "Invalid PAssword";
+      $success = "";
+
+    }
+
+  }
+  else{
+    $error = "Inavlid Username";
+    $success= "";
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -21,22 +46,73 @@
 </head>
 
 <body >
-  <h1><strong>Welcome to <br />eBazar</strong><i class="fa-solid fa-carrot"></i></h1>
+  <!-- <div class="welcome"> -->
+    <h1><strong>Welcome to <br />eBazar</strong><i class="fa-solid fa-carrot"></i></h1>
+  <!-- </div> -->
+
   <div class="login-box">
+    <p class= "error"><?php echo $error; ?></p><p class= "success"><?php echo $success; ?></p>
+
+
+
     <h3>Login</h3>
-    <label for="" class= "form-label">Username</label>
+    <label for="" class= "form-label" >Username</label>
     <div class="input-group user-name">
-      <input type="text" class="form-control" placeholder="Enter Username" name="" value="">
+      <input type="text" class="form-control" name = "uname" placeholder="Enter Username" name="" value="" required>
+      <button type="button " class= "btn" name="button" id="play" onclick="usernameplay()">  <i class="fa-solid fa-volume-high"></i></button>
     </div>
+
     <label for="" class= "form-label">Password</label>
     <div class="input-group password">
-      <input type="password" class="form-control" placeholder="Enter Password" name="" value="">
+      <input type="password" class="form-control" name = "pass" placeholder="Enter Password" name="" value="" required>
+      <button type="button " class= "btn" name="button" id="play" onclick="passwordplay()">  <i class="fa-solid fa-volume-high"></i></button>
     </div>
 
     <br>
     <a href = "welcome.html" ><button type="button" class="btn btn-outline-info" name="button">Login</button></a>
+
     <br><br><a href="SignUp-eBazar.html">Create new account? SignUp</a>
   </div>
+
+
+
+<!-- Login AUDIO -->
+<audio src="audio-files/enter username.mp3" id="user-name-audio"></audio>
+<script>
+    function usernameplay() {
+        var audio = document.getElementById('user-name-audio');
+        if (audio.paused) {
+            audio.play();
+            $('#play').removeClass('glyphicon-play-circle')
+            $('#play').addClass('glyphicon-pause')
+        }else{
+            audio.pause();
+            audio.currentTime = 0
+            $('#play').addClass('glyphicon-play-circle')
+            $('#play').removeClass('glyphicon-pause')
+        }
+    }
+</script>
+
+<!-- PASSWORD AUDIO -->
+<audio src="audio-files/enter password.mp3" id="create-password-audio"></audio>
+<script>
+    function passwordplay() {
+        var audio = document.getElementById('create-password-audio');
+        if (audio.paused) {
+            audio.play();
+            $('#play').removeClass('glyphicon-play-circle')
+            $('#play').addClass('glyphicon-pause')
+        }else{
+            audio.pause();
+            audio.currentTime = 0
+            $('#play').addClass('glyphicon-play-circle')
+            $('#play').removeClass('glyphicon-pause')
+        }
+    }
+</script>
+
+
 
 
 </body>

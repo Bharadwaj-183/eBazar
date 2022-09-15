@@ -109,14 +109,48 @@
               <label for="" class="form-label">Upload Photo</label>
               <input type="file" name="" value="" class="btn btn-outline-info btn-small" name="button" required></input> -->
 
-              <label for="" class="form-label">Crop Name</label>
+              <label for="" class="form-label">Crop Name:</label>
               <div class="input-group crop-name">
-                <input type="text" class="form-control" placeholder="Enter Crop name" name="" value="">
+                <input type="text" class="form-control" placeholder="Enter Crop name" name="" value="" width = 100px>
+                <button type="button " class= "btn" name="button" id="play" onclick="cropplay()">  <i class="fa-solid fa-volume-high"></i></button>
               </div><br> OR
               <!-- Image search -->
-              <button class="btn btn-outline-info  veg-button" data-bs-target="#ImageModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Search with Images</button>
+              <button class="btn btn-outline-info  veg-button" data-bs-target="#ImageModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Enter name using  Images</button>
+              <br><br>
+              <label for="">Crop size ( if appropriate):</label><br><br>
+              <input type="radio" class="btn-check" name="options-l" id="option1" autocomplete="off" >
+              <label class="btn btn-outline-info" for="option1">Small</label>
 
+              <input type="radio" class="btn-check" name="options-l" id="option2" autocomplete="off">
+              <label class="btn btn-outline-info" for="option2">Medium</label>
 
+              <input type="radio" class="btn-check" name="options-l" id="option3" autocomplete="off" >
+              <label class="btn btn-outline-info" for="option3">Large</label>
+
+              <br><br>
+              <label for="">Harvesting Type:</label><br><br>
+              <input type="radio" class="btn-check" name="options-o" id="option4" autocomplete="off" >
+              <label class="btn btn-outline-info" for="option4">Organic</label>
+
+              <input type="radio" class="btn-check" name="options-o" id="option5" autocomplete="off">
+              <label class="btn btn-outline-info" for="option5">Inorganic</label>
+
+              <br>
+              <label for="" class="form-label">Quantity</label>
+              <div class="input-group password">
+                <input type="text" class="form-control" placeholder="Enter Quantity" name="" value="">
+                <button type="button " class= "btn" name="button" id="play" onclick="quantityplay()">  <i class="fa-solid fa-volume-high"></i></button>
+              </div>
+              <br>
+              <label for="" class="form-label">Price per Unit</label>
+              <div class="input-group password">
+                <input type="text" class="form-control" placeholder="Enter Cost(per Kg)" name="" value="">
+                <button type="button " class= "btn" name="button" id="play" onclick="priceplay()">  <i class="fa-solid fa-volume-high"></i></button>
+              </div>
+              <br>
+              <label for="" class="form-label">Upload Photo</label>
+              <input type="file" name="" value="" class="btn btn-outline-info btn-small" name="button" required></input>
+              <button type="button " class= "btn" name="button" id="play" onclick="photoplay()">  <i class="fa-solid fa-volume-high"></i></button>
             </div>
 
             <div class="modal-footer">
@@ -126,8 +160,74 @@
           </div>
         </div>
       </div>
+      <audio src="audio-files/enter crop name.mp3" id="crop-name-audio"></audio>
+      <script>
+          function cropplay() {
+              var audio = document.getElementById('crop-name-audio');
+              if (audio.paused) {
+                  audio.play();
+                  $('#play').removeClass('glyphicon-play-circle')
+                  $('#play').addClass('glyphicon-pause')
+              }else{
+                  audio.pause();
+                  audio.currentTime = 0
+                  $('#play').addClass('glyphicon-play-circle')
+                  $('#play').removeClass('glyphicon-pause')
+              }
+          }
+      </script>
 
-      <!-- IMAGES  MODAL -->
+      <audio src="audio-files/enter picture.mp3" id="photo-audio"></audio>
+      <script>
+          function photoplay() {
+              var audio = document.getElementById('photo-audio');
+              if (audio.paused) {
+                  audio.play();
+                  $('#play').removeClass('glyphicon-play-circle')
+                  $('#play').addClass('glyphicon-pause')
+              }else{
+                  audio.pause();
+                  audio.currentTime = 0
+                  $('#play').addClass('glyphicon-play-circle')
+                  $('#play').removeClass('glyphicon-pause')
+              }
+          }
+      </script>
+
+      <audio src="audio-files/enter cost.mp3" id="price-audio"></audio>
+      <script>
+          function priceplay() {
+              var audio = document.getElementById('price-audio');
+              if (audio.paused) {
+                  audio.play();
+                  $('#play').removeClass('glyphicon-play-circle')
+                  $('#play').addClass('glyphicon-pause')
+              }else{
+                  audio.pause();
+                  audio.currentTime = 0
+                  $('#play').addClass('glyphicon-play-circle')
+                  $('#play').removeClass('glyphicon-pause')
+              }
+          }
+      </script>
+
+      <audio src="audio-files/enter quantity.mp3" id="quantity-audio"></audio>
+      <script>
+          function quantityplay() {
+              var audio = document.getElementById('quantity-audio');
+              if (audio.paused) {
+                  audio.play();
+                  $('#play').removeClass('glyphicon-play-circle')
+                  $('#play').addClass('glyphicon-pause')
+              }else{
+                  audio.pause();
+                  audio.currentTime = 0
+                  $('#play').addClass('glyphicon-play-circle')
+                  $('#play').removeClass('glyphicon-pause')
+              }
+          }
+      </script>
+      <!-- IMAGE  MODAL -->
       <div class="modal fade" id="ImageModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
           <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">

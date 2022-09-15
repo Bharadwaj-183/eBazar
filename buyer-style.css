@@ -142,7 +142,9 @@ marquee{
   width  :1000px;
 } */
 
-
+a{
+  color : blue;
+}
 .dropdown{
   margin-left : 40%;
 
